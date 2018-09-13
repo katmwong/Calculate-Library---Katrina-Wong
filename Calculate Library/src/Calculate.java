@@ -65,7 +65,27 @@ public class Calculate {
 			return a;
 		}
 		else {
+			return b;
+		}
+	}
+	public static double max(double a, double b, double c) {
+		if (a > b && b > c) {
 			return a;
+		}
+		else if (a > c && c > b) {
+			return a;
+		}
+		else if (b > a && a > c) {
+			return b;
+		}
+		else if (b > c && c > a) {
+			return b;
+		}
+		else if (c > a && a > b) {
+			return c;
+		}
+		else if (c > b && b > a) {
+			return c;
 		}
 	}
 }
