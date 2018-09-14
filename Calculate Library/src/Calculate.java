@@ -84,9 +84,31 @@ public class Calculate {
 		else if (c > a && a > b) {
 			return c;
 		}
-		else if (c > b && b > a) {
+		else {
 			return c;
 		}
+	}
+	public static int min(int a, int b) {
+		if (a < b) {
+			return a;
+		}
+		else if (b < a) {
+			return b;
+		}
+		else {
+			return a;
+		}
+	}
+	public static double round2(double a) {
+		if (a*100 < 5) {
+			return 
+		}
+	public static double exponent(double a, int b) {
+		double answer;
+		for (double a=0; a<=b; a++;) {
+			
+		}
+	}
 	}
 }
 
