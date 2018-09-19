@@ -2,10 +2,10 @@
  * @Katrina Wong
  * @Version September 6, 2018
  */
-public class DoMath {
+public clasns DoMath {
 
 	public static void main(String[] args){
-		System.out.println(Calculate.max(-3.0,2.8));
+		System.out.println(Calculate.exponent(2,3));
 
 	}
 
