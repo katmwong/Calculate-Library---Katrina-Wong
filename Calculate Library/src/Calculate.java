@@ -111,7 +111,6 @@ public class Calculate {
 			return a;
 		}
 	}
-	
 	//rounds input to two decimal places
 	public static double round2(double a) {
 		//if input is positive
@@ -130,32 +129,67 @@ public class Calculate {
 				return (a * 1000 - a * 1000 % 10)/1000;
 			}
 			else {
-				return (10 - a * 1000 % 10 + a * 1000)/1000;
+				return (10 - a * 1000 % 10 + a * 1000)/-1000;
 			}
 		}
 	}
-	/*
 	//returns an input raised to a positive integer 
 	public static double exponent(double base, int exponent) {
-		double answer = 1
-		for (int i=0; i =< exponent; i++;) {
-			product * base;
+		double answer = 1;
+		for (int i=0; i < exponent; i++) {
+			answer *= base;
 		}
 		return answer;
 	}
 	//returns the factorial of the value passed
 	public static int factorial(int a) {
-		int answer = 1
-		if (a = 0) {
+		int answer = 1;
+		if (a == 0) {
 			return 0;
 		}
 		else {
-			for (int i=1; i =< a; i++) {
-				product * i;
-		}
+			for (int i=1; i < a; i++) {
+				answer *= i;
+			}
 		return answer;
 		}
 	}
-	*/
+	//determines if input is prime
+	public static boolean isPrime(int a) {
+		boolean answer;
+		boolean isPrime = true;
+		if(a > 1) {
+			for (int i = a-1; i > 1; i--) {
+				answer = Calculate.isDivisibleBy(a,i); 
+				if (answer == true) {
+					isPrime = false;
+				}
+				else {
+					isPrime = true;
+				}
+			}
+		}
+		else if(a == 1) {
+			isPrime = true;
+		}
+		else {
+			isPrime = false;
+		}
+		return isPrime;
+	}
+	//returns the greatest common factor of two positive inputs
+	public static int gcf(int a,int b) {
+		int answer;
+		
+	}
+	//estimates the square root of a value
+	public static double sqrt(double num) {
+		double approx;
+		double root;
+			if(num>0) {
+				
+				
+			}
+	}
 }
 
