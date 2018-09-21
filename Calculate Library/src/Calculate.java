@@ -164,9 +164,6 @@ public class Calculate {
 				if (answer == true) {
 					isPrime = false;
 				}
-				else {
-					isPrime = true;
-				}
 			}
 		}
 		else if(a == 1) {
@@ -179,17 +176,26 @@ public class Calculate {
 	}
 	//returns the greatest common factor of two positive inputs
 	public static int gcf(int a,int b) {
-		int answer;
-		
-	}
+		for(int factor = a; factor > 1; factor--) {
+			boolean divisible1 = Calculate.isDivisibleBy(a,factor);
+			boolean divisible2 = Calculate.isDivisibleBy(b,factor);
+				if(divisible1 == true && divisible2 ==true) {
+					return factor;
+				}
+			}
+		return 1;
+		}
 	//estimates the square root of a value
 	public static double sqrt(double num) {
-		double approx;
+		double estimate;
 		double root;
-			if(num>0) {
-				
-				
-			}
-	}
+			root =num/2;
+			do{
+				estimate = root;
+				root = (estimate + (num/estimate))/2;
+			}	
+			while ((estimate - root) != 0) ;
+			return round2(root);
+		}
 }
 
