@@ -84,7 +84,7 @@ public class Calculate {
 			return a;
 		}
 		else if (b >= c && b >= a) {
-			return a;
+			return b;
 		}
 		else {
 			return c;
