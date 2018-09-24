@@ -42,7 +42,7 @@ public class Calculate {
 	//converts input improper fraction to mixed number
 	public static String toMixedNum(int numerator, int denominator) {
 		String answer;
-		answer = (numerator/denominator + " " + numerator % denominator + "/" + denominator);
+		answer = (numerator/denominator + "_" + numerator % denominator + "/" + denominator);
 		return answer;
 	}
 	//returns quadratic form of input factors
@@ -80,20 +80,11 @@ public class Calculate {
 	}
 	//returns the highest input
 	public static double max(double a, double b, double c) {
-		if (a >= b && b >= c) {
+		if (a >= b && a >= c) {
 			return a;
 		}
-		else if (a >= c && c >= b) {
+		else if (b >= c && b >= a) {
 			return a;
-		}
-		else if (b >= a && a >= c) {
-			return b;
-		}
-		else if (b >= c && c >= a) {
-			return b;
-		}
-		else if (c >= a && a >= b) {
-			return c;
 		}
 		else {
 			return c;

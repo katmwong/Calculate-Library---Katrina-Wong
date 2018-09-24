@@ -5,6 +5,6 @@
 public class DoMath {
 
 	public static void main(String[] args){
-		System.out.println(Calculate.sqrt(5));
+		System.out.println(Calculate.max(3,2,1));
 	}
 }
