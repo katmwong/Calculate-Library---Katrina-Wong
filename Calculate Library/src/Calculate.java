@@ -3,6 +3,12 @@
  * @Version September 6, 2018
  */
 public class Calculate {
+	//returns the square of the input
+	public static int square(int num) {
+		int answer;
+		answer = num*num;
+		return answer;
+	}
 	//returns the cube  of the input
 	public static int cube(int number) {
 		int answer;
@@ -10,10 +16,16 @@ public class Calculate {
 		return answer;
 	}
 	//returns the average of two numbers
-	public static int average(int number, int number2) {
-		int answer; 
+	public static double average(double number, double number2) {
+		double answer; 
 		answer = (number + number2) / 2;
 		return answer;	
+	}
+	//returns the average of three numbers
+	public static double average(double num,double num2,double num3) {
+		double answer;
+		answer = (num + num2 + num3) / 3;
+		return answer;
 	}
 	//converts input radian to degrees
 	public static double toDegrees(double number) {
@@ -27,8 +39,8 @@ public class Calculate {
 		answer = (number/180.0 *3.14159);
 		return answer;
 	}
-	//returns the discriminate of input values
-	public static int discriminate(int a, int b, int c) {
+	//returns the discriminant of input values
+	public static int discriminant(int a, int b, int c) {
 		int answer;
 		answer = ((b*b) - (4*a*c));
 		return answer;
@@ -48,12 +60,15 @@ public class Calculate {
 	//returns quadratic form of input factors
 	public static String foil(int a, int b, int c, int d, String x) {
 		String answer;
-		answer = (a*c) + "x" + "^2" + " + " + ((b*c) + (a*d)) + " + " + (b*d);
+		answer = (a*c) + "x" + "^2" + " + " + ((b*c) + (a*d)) + "x" + " + " + (b*d);
 		return answer;
 	}
 	//checks if input cleanly divides 
 	public static boolean isDivisibleBy(int a, int b) {
 		if (a%b == 0) {
+			return true;
+		}
+		else if (b%a == 0) {
 			return true;
 		}
 		else {
@@ -136,10 +151,11 @@ public class Calculate {
 	public static int factorial(int a) {
 		int answer = 1;
 		if (a == 0) {
-			return 0;
+			answer = 1;
+			return answer;
 		}
 		else {
-			for (int i=1; i < a; i++) {
+			for (int i=1; i < a+1; i++) {
 				answer *= i;
 			}
 		return answer;
