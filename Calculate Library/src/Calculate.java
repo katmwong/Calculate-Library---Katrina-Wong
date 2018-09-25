@@ -28,15 +28,15 @@ public class Calculate {
 		return answer;
 	}
 	//converts input radian to degrees
-	public static double toDegrees(double number) {
+	public static double toDegrees(double rad) {
 		double answer; 
-		answer = (number*3.14159 / 180.0);
+		answer = (rad*3.14159 / 180.0);
 		return answer;
 	}
 	//converts input degrees to radian
-	public static double toRadians(double number) {
+	public static double toRadians(double degree) {
 		double answer;
-		answer = (number/180.0 *3.14159);
+		answer = (degree/180.0 *3.14159);
 		return answer;
 	}
 	//returns the discriminant of input values
@@ -155,7 +155,7 @@ public class Calculate {
 			return answer;
 		}
 		else {
-			for (int i=1; i < a+1; i++) {
+			for (int i=1; i <= a; i++) {
 				answer *= i;
 			}
 		return answer;
