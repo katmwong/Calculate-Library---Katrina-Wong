@@ -117,6 +117,18 @@ public class Calculate {
 			return a;
 		}
 	}
+	//returns the smallest input (double)
+	public static double min(double a,double b) {
+		if (a < b) {
+			return a;
+		}
+		else if (b < a) {
+			return b;
+		}
+		else {
+			return a;
+		}
+	}
 	//rounds input to two decimal places
 	public static double round2(double a) {
 		//if input is positive
@@ -204,5 +216,24 @@ public class Calculate {
 			while ((estimate - root) != 0) ;
 			return round2(root);
 		}
+	//returns an approximated root of a quadratic equation
+	public static String quadForm(int a,int b,int c) {
+		double root1 = Calculate.sqrt(-b + Calculate.discriminant(a,b,c)) /2*a;
+		double root2 = Calculate.sqrt(-b - Calculate.discriminant(a,b,c)) /2*a;
+		String roots;
+		if(root1>0 && root2>0) {
+			Calculate.round2(root1);
+			Calculate.round2(root2);
+			roots = Calculate.min(root1, root2) + " and " + Calculate.max(root1, root2);
+			return roots;
+		}
+		else if(root1 == root2) {
+			return Calculate.round2(root1) + "";
+		}
+		else {
+			return "no real roots";
+		}
+	}
 }
+
 
