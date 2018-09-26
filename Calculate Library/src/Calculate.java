@@ -76,78 +76,78 @@ public class Calculate {
 		}
 	}
 	//returns the absolute value of the input
-	public static double absValue(double a) {
-		if (a > 0) {
-			return a;
+	public static double absValue(double num) {
+		if (num > 0) {
+			return num;
 		}
 		else {
-			return (a*-1);
+			return (num*-1);
 		}
 	}
 	//returns the higher of two inputs
-	public static double max(double a, double b) {
-		if (a > b) {
-			return a;
+	public static double max(double num1, double num2) {
+		if (num1 > num2) {
+			return num1;
 		}
 		else {
-			return b;
+			return num2;
 		}
 	}
 	//returns the highest input
-	public static double max(double a, double b, double c) {
-		if (a >= b && a >= c) {
-			return a;
+	public static double max(double num1, double num2, double num3) {
+		if (num1 >= num2 && num1 >= num3) {
+			return num1;
 		}
-		else if (b >= c && b >= a) {
-			return b;
+		else if (num2 >= num3 && num2 >= num1) {
+			return num2;
 		}
 		else {
-			return c;
+			return num3;
 		}
 	}
 	//returns the smallest input
-	public static int min(int a, int b) {
-		if (a < b) {
-			return a;
+	public static int min(int num1, int num2) {
+		if (num1 < num2) {
+			return num1;
 		}
-		else if (b < a) {
-			return b;
+		else if (num2 < num1) {
+			return num2;
 		}
 		else {
-			return a;
+			return num1;
 		}
 	}
 	//returns the smallest input (double)
-	public static double min(double a,double b) {
-		if (a < b) {
-			return a;
+	public static double min(double num1,double num2) {
+		if (num1< num2) {
+			return num1;
 		}
-		else if (b < a) {
-			return b;
+		else if (num2 < num1) {
+			return num2;
 		}
 		else {
-			return a;
+			return num1;
 		}
 	}
 	//rounds input to two decimal places
-	public static double round2(double a) {
+	public static double round2(double num) {
 		//if input is positive
-		if (a > 0) {
-			if (a * 1000 % 10 < 5) {
-				return (a * 1000 - a * 1000 % 10)/1000;
+		if (num > 0) {
+			if (num * 1000 % 10 < 5) {
+				return (num * 1000 - num * 1000 % 10)/1000;
 			}
 			else {
-				return (10 - a * 1000 % 10 + a * 1000)/1000;
+				return (10 - num * 1000 % 10 + num * 1000)/1000;
 			}
 		}
 		//if input is negative
 		else {
-			a *= -1; //a = a* -1
-			if (a * 1000 % 10 < 5) {
-				return (a * 1000 - a * 1000 % 10)/1000;
+			num *= -1; //a = a* -1
+			if (num * 1000 % 10 < 5) {
+				return (num * 1000 - num * 1000 % 10)/1000;
 			}
 			else {
-				return (10 - a * 1000 % 10 + a * 1000)/-1000;
+				return (10 - num * 1000 % 10 + num * 1000)/-1000;
 			}
 		}
 	}
@@ -160,32 +160,32 @@ public class Calculate {
 		return answer;
 	}
 	//returns the factorial of the value passed
-	public static int factorial(int a) {
+	public static int factorial(int num) {
 		int answer = 1;
-		if (a == 0) {
+		if (num == 0) {
 			answer = 1;
 			return answer;
 		}
 		else {
-			for (int i=1; i <= a; i++) {
+			for (int i=1; i <= num; i++) {
 				answer *= i;
 			}
 		return answer;
 		}
 	}
 	//determines if input is prime
-	public static boolean isPrime(int a) {
+	public static boolean isPrime(int num) {
 		boolean answer;
 		boolean isPrime = true;
-		if(a > 1) {
-			for (int i = a-1; i > 1; i--) {
-				answer = Calculate.isDivisibleBy(a,i); 
+		if(num > 1) {
+			for (int i = num-1; i > 1; i--) {
+				answer = isDivisibleBy(num,i); 
 				if (answer == true) {
 					isPrime = false;
 				}
 			}
 		}
-		else if(a == 1) {
+		else if(num == 1) {
 			isPrime = true;
 		}
 		else {
@@ -194,10 +194,10 @@ public class Calculate {
 		return isPrime;
 	}
 	//returns the greatest common factor of two positive inputs
-	public static int gcf(int a,int b) {
-		for(int factor = a; factor > 1; factor--) {
-			boolean divisible1 = Calculate.isDivisibleBy(a,factor);
-			boolean divisible2 = Calculate.isDivisibleBy(b,factor);
+	public static int gcf(int num1,int num2) {
+		for(int factor = num1; factor > 1; factor--) {
+			boolean divisible1 = Calculate.isDivisibleBy(num1,factor);
+			boolean divisible2 = Calculate.isDivisibleBy(num2,factor);
 				if(divisible1 == true && divisible2 ==true) {
 					return factor;
 				}
@@ -216,23 +216,21 @@ public class Calculate {
 			while ((estimate - root) != 0) ;
 			return round2(root);
 		}
+	
 	//returns an approximated root of a quadratic equation
-	public static String quadForm(int a,int b,int c) {
-		double root1 = Calculate.sqrt(-b + Calculate.discriminant(a,b,c)) /2*a;
-		double root2 = Calculate.sqrt(-b - Calculate.discriminant(a,b,c)) /2*a;
+	public static String quadForm(int num1,int num2,int num3) {
+		double discriminant = discriminant(num1,num2,num3);
 		String roots;
-		if(root1>0 && root2>0) {
-			Calculate.round2(root1);
-			Calculate.round2(root2);
-			roots = Calculate.min(root1, root2) + " and " + Calculate.max(root1, root2);
-			return roots;
+		if(discriminant>0) {
+			roots = min(round2(-num2 + sqrt(discriminant)) /2*num1, round2(-num2 - sqrt(discriminant)) /2*num1) + " and " + max(round2(-num2 + sqrt(discriminant)) /2*num1, round2(-num2 - sqrt(discriminant)) /2*num1);
 		}
-		else if(root1 == root2) {
-			return Calculate.round2(root1) + "";
-		}
+		else if(discriminant == 0) {
+			roots = round2(-num2/2*num1) + "";
+		}			
 		else {
-			return "no real roots";
+			roots = "no real roots";
 		}
+		return roots;
 	}
 }
 
