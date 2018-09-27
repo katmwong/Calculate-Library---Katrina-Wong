@@ -40,8 +40,8 @@ public class Calculate {
 		return answer;
 	}
 	//returns the discriminant of input values
-	public static int discriminant(int a, int b, int c) {
-		int answer;
+	public static double discriminant(double a, double b, double c) {
+		double answer;
 		answer = ((b*b) - (4*a*c));
 		return answer;
 	}
@@ -64,12 +64,12 @@ public class Calculate {
 		return answer;
 	}
 	//checks if input cleanly divides 
-	public static boolean isDivisibleBy(int a, int b) {
-		if (a%b == 0) {
+	public static boolean isDivisibleBy(int divident, int divisor) {
+		if (divident%divisor == 0) {
 			return true;
 		}
-		else if (b%a == 0) {
-			return true;
+		else if(divisor == 0) {
+			throw new IllegalArgumentException("can't divide numbers by 0");
 		}
 		else {
 			return false;
@@ -157,6 +157,9 @@ public class Calculate {
 		for (int i=0; i < exponent; i++) {
 			answer *= base;
 		}
+	if(exponent<0) {
+		throw new IllegalArgumentException("method only accepts positive powers");
+	}
 		return answer;
 	}
 	//returns the factorial of the value passed
@@ -170,6 +173,9 @@ public class Calculate {
 			for (int i=1; i <= num; i++) {
 				answer *= i;
 			}
+		if(num<0) {
+			throw new IllegalArgumentException("factorials only apply to non-negative numbers");
+		}
 		return answer;
 		}
 	}
@@ -214,6 +220,9 @@ public class Calculate {
 				root = (estimate + (num/estimate))/2;
 			}	
 			while ((estimate - root) != 0) ;
+		if(num<0) {
+			throw new IllegalArgumentException("can't take the square root of negative numbers");
+		}
 			return round2(root);
 		}
 	
@@ -233,5 +242,3 @@ public class Calculate {
 		return roots;
 	}
 }
-
-
